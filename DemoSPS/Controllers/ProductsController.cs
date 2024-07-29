@@ -13,13 +13,13 @@ namespace DemoSPS.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly AppDbContext _context;
         private readonly ICacheService _cacheService;
 
-        public ProductsController(IHttpContextAccessor httpContextAccessor,
+        public ProductsController(AppDbContext context,
             ICacheService cacheService)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _context = context;
             _cacheService = cacheService;
         }
         [HttpGet("api/san-pham")]

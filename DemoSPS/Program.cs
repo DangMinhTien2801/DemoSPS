@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContextFactory<AppDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
     string connectString = builder.Configuration.GetConnectionString("DemoSPS");
     options.UseSqlServer(connectString);
@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseMiddleware<DbContextMiddleware>();
+
 app.MapControllers();
 
 app.Run();
