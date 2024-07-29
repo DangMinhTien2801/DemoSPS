@@ -1,4 +1,5 @@
 using DemoSPS.Data;
+using DemoSPS.Middleware;
 using DemoSPS.Services;
 using DemoSPS.Services.Abstract;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(connectString);
 });
 builder.Services.AddSingleton<ICacheService, CacheService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -31,7 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseMiddleware<DbContextMiddleware>();
 app.MapControllers();
 
 app.Run();
