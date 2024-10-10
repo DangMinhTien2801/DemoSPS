@@ -17,9 +17,13 @@ namespace DemoSPS.Services
         }
         public async Task<List<Product>> GetProduct(Expression<Func<Product, bool>>? expression = null)
         {
+            return expression == null ? await GetAll().ToListAsync() :
+                        await GetAll().Where(expression).ToListAsync();
+        }
+        public IQueryable<Product> GetAll()
+        {
             var _context = _httpContextAccessor?.HttpContext?.RequestServices.GetRequiredService<AppDbContext>() ?? null!;
-            return expression == null ? await _context.Products.ToListAsync() :
-                        await _context.Products.Where(expression).ToListAsync();
+            return _context.Products;
         }
     }
 }

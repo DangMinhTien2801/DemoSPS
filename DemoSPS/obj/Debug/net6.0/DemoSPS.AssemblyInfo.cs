@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemoSPS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65ceed6436dcfd0baa3f4d07567d72b5c5db68c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fc04034f95256462bb01cde0b82556e7709a1c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemoSPS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemoSPS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
